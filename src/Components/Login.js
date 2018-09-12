@@ -14,7 +14,11 @@ import './Login.css'
 export class Login extends React.Component{
 
     render(){
+        function verify() {
+            localStorage.setItem('isLoggedIn', document.getElementById('email').value === localStorage.getItem('user')  && document.getElementById('password').value === localStorage.getItem('pass'));
+        }
         return (
+
             <React.Fragment>
                 <CssBaseline />
                 <main className="layout">
@@ -38,11 +42,12 @@ export class Login extends React.Component{
                                 />
                             </FormControl>
                             <Button
-                                type="submit"
+
                                 fullWidth
                                 variant="raised"
                                 color="primary"
                                 className="submit"
+                                onClick={verify}
                             >
                                 Sign in
                             </Button>
@@ -52,5 +57,8 @@ export class Login extends React.Component{
             </React.Fragment>
         );
     }
+
+
+
 
 }

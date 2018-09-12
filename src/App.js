@@ -9,12 +9,11 @@ class App extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {isLoggedIn:false};
-
+        localStorage.setItem('user', "qwe");
+        localStorage.setItem('pass', "qwe");
     }
 
     render() {
-
         const LoginView = () => (
             <Login/>
         );
@@ -41,7 +40,7 @@ class App extends Component {
 
                     <div>
                         <Route exact path="/" component={LoginView}/>
-                        {this.state.isLoggedIn && <Route path="/todo" component={TodoView}/>}
+                        {localStorage.getItem("isLoggedIn") && <Route path="/todo" component={TodoView}/>}
                     </div>
                 </div>
             </Router>
